@@ -14,16 +14,14 @@ def create_tables(app):
 def populate_db(app):
     with app.app_context():
         customers = [
-            Customer(id=1, name='John Doe', status='active'),
-            Customer(id=2, name='Robert Roe', status='inactive'),
-            Customer(id=3, name='Sammy Soe', status='active')
+            Customer(name='Leo Messi', status='active'),
+            Customer(name='Leandro Paredes', status='inactive'),
+            Customer(name='Rodrigo de Paul', status='active')
         ]
-        
         orders = [
-            Order(id=1, customer_id=3, order_date='2020-12-06'),
-            Order(id=2, customer_id=2, order_date='2020-12-06')
+            Order(customer_id=3, order_date='2020-12-06'),
+            Order(customer_id=2, order_date='2020-12-06')
         ]
-        
         db.session.bulk_save_objects(customers)
         db.session.bulk_save_objects(orders)
         db.session.commit()
